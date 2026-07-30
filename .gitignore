@@ -67,7 +67,7 @@ htmlcov/
 # Project datasets
 # -----------------------------
 1_data_acquisition/historical/row/
-
+0_project_definition
 # -----------------------------
 # Temporary files
 # -----------------------------
