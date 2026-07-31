@@ -68,6 +68,7 @@ htmlcov/
 # -----------------------------
 1_data_acquisition/historical/row/
 0_project_definition
+3_text_preprocessing/data/processed/cryptovision_v1_preprocessed.parquet
 # -----------------------------
 # Temporary files
 # -----------------------------
