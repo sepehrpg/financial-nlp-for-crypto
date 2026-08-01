@@ -4,6 +4,19 @@
 
 # گزارش پیشرفت پروژه Financial NLP for Crypto
 
+## فهرست مطالب
+
+- [گزارش پیشرفت پروژه Financial NLP for Crypto](#گزارش-پیشرفت-پروژه-financial-nlp-for-crypto)
+- [فاز های پروژه](#فاز-های-پروژه)
+- [ساختار پروژه](#ساختار-پروژه)
+- [فاز اول: جمع‌آوری و مدیریت داده](#فاز-اول-جمعآوری-و-مدیریت-داده)
+- [فاز دوم: ممیزی داده و تحلیل اکتشافی](#فاز-دوم-ممیزی-داده-و-تحلیل-اکتشافی)
+- [فاز سوم: پیش‌پردازش متن](#فاز-سوم-پیشپردازش-متن)
+- [فاز چهارم: استخراج ویژگی‌های متنی](#فاز-چهارم-استخراج-ویژگیهای-متنی)
+- [ارتباط پروژه با دروس](#ارتباط-پروژه-با-دروس)
+- [وضعیت فعلی و ادامه پروژه](#وضعیت-فعلی-و-ادامه-پروژه)
+
+
 استاد محترم،
 در ادامه مباحث درس‌های **تحلیل کلان‌داده** و **یادگیری ماشین**، پروژه‌ای آموزشی و کاربردی با موضوع تحلیل اخبار مالی بازار رمزارزها طراحی کرده‌ام. هدف اصلی پروژه، ایجاد یک خط پردازش داده برای بررسی اخبار مرتبط با بیت‌کوین و آماده‌سازی آن‌ها برای **تشخیص میزان اثرگذاری خبر بر بازار،** **تحلیل احساسات** و در مراحل بعد، **پیش‌بینی واکنش قیمت** است.
 پروژه به‌صورت فازبندی‌شده در GitHub توسعه داده شده و تاکنون چهار فاز اصلی آن انجام شده است.
@@ -12,27 +25,25 @@
 
 <div dir="ltr">
 
-0_project_definition
-1_data_acquisition
-2_data_audit_and_eda          
-3_text_preprocessing
-**4_nlp_feature_extraction**                **<- current phase**
-5_market_alignment_and_labeling
-6_dataset_splitting_and_leakage_control
-7_model_selection_and_training
-8_evaluation_and_error_analysis
-9_news_ranking_and_event_analysis
-10_application_and_live_pipeline
-11_documentation_and_reproducibility
+* 0_project_definition
+* 1_data_acquisition
+* 2_data_audit_and_eda          
+* 3_text_preprocessing
+* **4_nlp_feature_extraction**                **<- current phase**
+* 5_market_alignment_and_labeling
+* 6_dataset_splitting_and_leakage_control
+* 7_model_selection_and_training
+* 8_evaluation_and_error_analysis
+* 9_news_ranking_and_event_analysis
+* 10_application_and_live_pipeline
+* 11_documentation_and_reproducibility
 
 </div>
 
 ## ساختار پروژه
 در هر فاز ساختار پروژه معمولا شامل:
-- notebook
-  - اجرای پروژه در نوت بوک با مستند سازی و آموزش
-- src
-  - ایجاد سورس کد و کلاس های کمکی به زبان پایتون برای پروژه
+- notebook (اجرای پروژه در نوت بوک با مستند سازی و آموزش)
+- src (ایجاد سورس کد و کلاس های کمکی به زبان پایتون برای پروژه)
 - data
 
 هستند که برای هر بخش دایکیومنت نویسی و مستند سازی کامل انجام شده مخصوصا نوت بوک ها که به صورت آموزشی طراحی شده اند و توضیحات کاملی دارند
