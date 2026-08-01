@@ -1,0 +1,14 @@
+{
+  "feature_text_representation": "text_title_description",
+  "audited_representations": ["text_title_description", "Filtered_Text"],
+  "very_short_word_threshold": 5,
+  "financial_keywords": [
+    "bitcoin",
+    "crypto",
+    "etf",
+    "sec",
+    "inflation",
+    "interest rate",
+    "market"
+  ]
+}

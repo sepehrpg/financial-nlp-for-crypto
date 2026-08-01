@@ -69,10 +69,12 @@ htmlcov/
 1_data_acquisition/historical/row/
 0_project_definition
 3_text_preprocessing/data/processed/cryptovision_v1_preprocessed.parquet
+4_nlp_feature_extraction/data/*.parquet
+4_nlp_feature_extraction/data/*.json
+!4_nlp_feature_extraction/data/.gitkeep
 # -----------------------------
 # Temporary files
 # -----------------------------
 *.tmp
 *.temp
-
 
