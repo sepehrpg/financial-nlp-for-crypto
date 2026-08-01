@@ -31,3 +31,8 @@ def sample_frame() -> pd.DataFrame:
             ],
         }
     )
+
+
+@pytest.fixture
+def phase4_dir() -> Path:
+    return PHASE4_DIR

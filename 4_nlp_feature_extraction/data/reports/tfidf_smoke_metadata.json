@@ -1,0 +1,36 @@
+{
+  "stage": "04_02_tfidf_feature_extraction",
+  "status": "smoke_test_only",
+  "leakage_warning": "These vectorizers were fit only for a fixed smoke test. Do not use them as final model features. After the temporal split, fit on train only and transform validation/test without refitting.",
+  "sample_rows": 3000,
+  "representations": [
+    "text_title_description",
+    "Filtered_Text"
+  ],
+  "recipes": [
+    "word_tfidf",
+    "character_tfidf",
+    "word_character_tfidf"
+  ],
+  "outputs": {
+    "source_row_ids": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\smoke_sample_source_row_ids.csv",
+    "matrix::text_title_description__word_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\text_title_description__word_tfidf.npz",
+    "features::text_title_description__word_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\text_title_description__word_tfidf_feature_names.json",
+    "vectorizers::text_title_description__word_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\text_title_description__word_tfidf_vectorizers.joblib",
+    "matrix::text_title_description__character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\text_title_description__character_tfidf.npz",
+    "features::text_title_description__character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\text_title_description__character_tfidf_feature_names.json",
+    "vectorizers::text_title_description__character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\text_title_description__character_tfidf_vectorizers.joblib",
+    "matrix::text_title_description__word_character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\text_title_description__word_character_tfidf.npz",
+    "features::text_title_description__word_character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\text_title_description__word_character_tfidf_feature_names.json",
+    "vectorizers::text_title_description__word_character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\text_title_description__word_character_tfidf_vectorizers.joblib",
+    "matrix::Filtered_Text__word_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\Filtered_Text__word_tfidf.npz",
+    "features::Filtered_Text__word_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\Filtered_Text__word_tfidf_feature_names.json",
+    "vectorizers::Filtered_Text__word_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\Filtered_Text__word_tfidf_vectorizers.joblib",
+    "matrix::Filtered_Text__character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\Filtered_Text__character_tfidf.npz",
+    "features::Filtered_Text__character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\Filtered_Text__character_tfidf_feature_names.json",
+    "vectorizers::Filtered_Text__character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\Filtered_Text__character_tfidf_vectorizers.joblib",
+    "matrix::Filtered_Text__word_character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\Filtered_Text__word_character_tfidf.npz",
+    "features::Filtered_Text__word_character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\Filtered_Text__word_character_tfidf_feature_names.json",
+    "vectorizers::Filtered_Text__word_character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\tfidf_smoke\\Filtered_Text__word_character_tfidf_vectorizers.joblib"
+  }
+}

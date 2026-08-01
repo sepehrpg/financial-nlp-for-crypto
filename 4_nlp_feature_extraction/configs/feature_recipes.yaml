@@ -1,0 +1,52 @@
+# Stage 2 uses these recipes only for a reproducible smoke test.
+# Final vectorizers must be fit on the training split in Phase 6/7.
+input:
+  relative_path: 3_text_preprocessing/data/processed/cryptovision_v1_preprocessed.parquet
+  id_column: source_row_id
+  representations:
+    - text_title_description
+    - Filtered_Text
+
+smoke_test:
+  sample_size: 3000
+  random_state: 42
+  include_all_empty_rows: true
+
+recipes:
+  word_tfidf:
+    kind: single
+    vectorizer:
+      analyzer: word
+      ngram_range: [1, 2]
+      lowercase: true
+      strip_accents: unicode
+      min_df: 2
+      max_df: 0.98
+      max_features: 6000
+      sublinear_tf: true
+      norm: l2
+      dtype: float32
+
+  character_tfidf:
+    kind: single
+    vectorizer:
+      analyzer: char_wb
+      ngram_range: [3, 5]
+      lowercase: true
+      strip_accents: unicode
+      min_df: 2
+      max_df: 0.98
+      max_features: 6000
+      sublinear_tf: true
+      norm: l2
+      dtype: float32
+
+  word_character_tfidf:
+    kind: combined
+    word_recipe: word_tfidf
+    character_recipe: character_tfidf
+
+output:
+  directory_relative_path: 4_nlp_feature_extraction/data/tfidf_smoke
+  benchmark_relative_path: 4_nlp_feature_extraction/data/reports/tfidf_smoke_benchmark.csv
+  metadata_relative_path: 4_nlp_feature_extraction/data/reports/tfidf_smoke_metadata.json

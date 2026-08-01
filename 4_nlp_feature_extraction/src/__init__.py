@@ -6,5 +6,6 @@ __all__ = [
     "pipeline",
     "representation_audit",
     "row_features",
+    "tfidf_features",
     "validation",
 ]
