@@ -14,9 +14,11 @@ import re
 import unicodedata
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 from typing import Iterable, Mapping, Sequence
-
+from langdetect import DetectorFactory, LangDetectException, detect
 import pandas as pd
 
+# Make language detection reproducible.
+DetectorFactory.seed = 0
 
 # -----------------------------------------------------------------------------
 # Project and schema configuration
@@ -525,7 +527,7 @@ def preprocess_csv_to_parquet(
     *,
     bitcoin_labels: Sequence[str],
     chunksize: int | None = None,
-) -> tuple[pd.DataFrame, dict[str, int | float | list[str]]]:
+) -> tuple[pd.DataFrame, dict[str, object]]:
     """Build the canonical Phase 3 processed dataset and write one Parquet file.
 
     Parameters
@@ -623,10 +625,28 @@ def preprocess_csv_to_parquet(
             | filtered_available
     )
 
-
     missing_text_removed = int((~usable_text_mask).sum())
     processed = processed.loc[usable_text_mask].copy()
 
+    # -------------------------------------------------------------------------
+    # English-language filtering
+    # -------------------------------------------------------------------------
+
+    language_rows_audited = len(processed)
+
+    processed, language_distribution = filter_english_text_rows(
+        processed,
+        primary_text_column="text_title_description",
+        fallback_text_column="full_text_clean",
+        progress_every=5_000,
+    )
+
+    english_rows_selected = len(processed)
+    non_english_or_unknown_rows_removed = (
+            language_rows_audited - english_rows_selected
+    )
+
+    # Deduplication must run after language filtering.
     duplicate_before = _duplicate_summary(processed)
 
     # Prefer the row with the richest available text when the same article URL
@@ -706,13 +726,23 @@ def preprocess_csv_to_parquet(
             "`pip install -r requirements.txt`."
         ) from exc
 
-    summary: dict[str, int | float | list[str]] = {
+    summary: dict[str, object] = {
         "raw_rows": raw_rows,
         "bitcoin_rows_selected": bitcoin_rows,
         "non_bitcoin_rows_removed": raw_rows - bitcoin_rows,
         "missing_all_candidate_text_rows_removed": missing_text_removed,
-        "url_duplicate_rows_before_dedup": int(duplicate_before["url_duplicate_rows"]),
-        "url_duplicate_pct_before_dedup": float(duplicate_before["url_duplicate_pct"]),
+
+        "language_rows_audited": language_rows_audited,
+        "language_distribution_before_filter": language_distribution,
+        "english_rows_selected": english_rows_selected,
+        "non_english_or_unknown_rows_removed": non_english_or_unknown_rows_removed,
+
+        "url_duplicate_rows_before_dedup": int(
+            duplicate_before["url_duplicate_rows"]
+        ),
+        "url_duplicate_pct_before_dedup": float(
+            duplicate_before["url_duplicate_pct"]
+        ),
         "url_title_duplicate_rows_before_dedup": int(
             duplicate_before["url_title_duplicate_rows"]
         ),
@@ -801,3 +831,116 @@ def financial_text_smoke_test() -> pd.DataFrame:
             "after": [clean_financial_text(value) for value in examples],
         }
     )
+
+
+def detect_language_safe(value: object) -> str:
+    """Return the detected ISO language code or 'unknown'."""
+
+    if value is None or pd.isna(value):
+        return "unknown"
+
+    text = str(value).strip()
+
+    if not text:
+        return "unknown"
+
+    # Limit the input before performing the character check.
+    text = text[:500]
+
+    alphabetic_count = sum(
+        character.isalpha()
+        for character in text
+    )
+
+    if alphabetic_count < 20:
+        return "unknown"
+
+    try:
+        return detect(text)
+    except LangDetectException:
+        return "unknown"
+
+
+
+
+def filter_english_text_rows(
+    df: pd.DataFrame,
+    *,
+    primary_text_column: str = "text_title_description",
+    fallback_text_column: str = "full_text_clean",
+    progress_every: int = 5_000,
+) -> tuple[pd.DataFrame, dict[str, int]]:
+    """Keep English rows without adding a language column."""
+
+    required_columns = {
+        primary_text_column,
+        fallback_text_column,
+    }
+
+    missing_columns = required_columns.difference(df.columns)
+
+    if missing_columns:
+        raise ValueError(
+            "Language-filtering columns are missing: "
+            f"{sorted(missing_columns)}"
+        )
+
+    primary_text = (
+        df[primary_text_column]
+        .astype("string")
+        .fillna("")
+        .str.strip()
+    )
+
+    fallback_text = (
+        df[fallback_text_column]
+        .astype("string")
+        .fillna("")
+        .str.strip()
+    )
+
+    # Use the shorter Title + Description representation.
+    # Full Text is used only for rows where it is unavailable.
+    detection_text = primary_text.where(
+        primary_text.ne(""),
+        fallback_text,
+    )
+
+    detected_languages: list[str] = []
+    total_rows = len(detection_text)
+
+    for position, text in enumerate(detection_text, start=1):
+        detected_languages.append(
+            detect_language_safe(text)
+        )
+
+        if (
+            progress_every > 0
+            and (
+                position % progress_every == 0
+                or position == total_rows
+            )
+        ):
+            print(
+                "Language detection: "
+                f"{position:,}/{total_rows:,} rows"
+            )
+
+    language_codes = pd.Series(
+        detected_languages,
+        index=df.index,
+        dtype="string",
+    )
+
+    language_counts = {
+        str(language): int(count)
+        for language, count in language_codes.value_counts(
+            dropna=False
+        ).items()
+    }
+
+    english_mask = language_codes.eq("en")
+
+    filtered = df.loc[english_mask].copy()
+
+    return filtered, language_counts

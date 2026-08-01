@@ -1,0 +1,51 @@
+input:
+  relative_path: 3_text_preprocessing/data/processed/cryptovision_v1_preprocessed.parquet
+  id_column: source_row_id
+  representations:
+    - text_title_description
+    - Filtered_Text
+
+  # Optional only. Leave null for evolving datasets.
+  # When set, any difference is reported but does not stop the pipeline.
+  reference_row_count: null
+
+validation:
+  # Normal schema and row-count changes become report rows.
+  # Only genuinely blocking conditions stop execution.
+  fail_on_severity:
+    - critical
+
+  # Continue when one requested representation is absent, using those available.
+  continue_with_available_representations: true
+
+  # Row-count drift above this ratio is labeled warning rather than info.
+  # It is still non-blocking.
+  row_count_warning_ratio: 0.25
+
+audit:
+  very_short_max_words: 3
+  very_short_max_characters: 20
+  percentile: 0.95
+
+features:
+  representation_prefixes:
+    text_title_description: title_description
+    Filtered_Text: filtered_text
+
+  currency_symbols: ["$", "€", "£", "¥", "₹", "₽", "₩", "₿"]
+
+  keyword_groups:
+    crypto_assets: [bitcoin, btc, ethereum, eth, crypto, cryptocurrency]
+    market_direction: [rally, surge, jump, gain, rise, bullish, drop, fall, plunge, decline, bearish]
+    regulation: [sec, regulator, regulation, approval, ban, lawsuit]
+    instruments: [etf, futures, options, spot]
+    macro: [inflation, interest rate, rate cut, rate hike, federal reserve, fed]
+    risk_events: [hack, exploit, liquidation, bankruptcy, fraud, default]
+
+output:
+  features_relative_path: 4_nlp_feature_extraction/data/row_features/row_level_text_features.parquet
+  comparison_csv_relative_path: 4_nlp_feature_extraction/data/reports/representation_comparison.csv
+  comparison_json_relative_path: 4_nlp_feature_extraction/data/reports/representation_comparison.json
+  contract_validation_relative_path: 4_nlp_feature_extraction/data/reports/phase3_contract_validation.csv
+  feature_validation_relative_path: 4_nlp_feature_extraction/data/reports/row_feature_validation.csv
+  metadata_relative_path: 4_nlp_feature_extraction/data/reports/stage1_run_metadata.json

@@ -1,0 +1,41 @@
+{
+  "phase": "4_nlp_feature_extraction",
+  "stage": "04_01_representation_audit_and_row_features",
+  "status": "completed",
+  "created_at_utc": "2026-08-01T16:28:20.521362+00:00",
+  "input_path": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\3_text_preprocessing\\data\\processed\\cryptovision_v1_preprocessed.parquet",
+  "input_rows": 88936,
+  "input_columns": 23,
+  "requested_representations": [
+    "text_title_description",
+    "Filtered_Text"
+  ],
+  "used_representations": [
+    "text_title_description",
+    "Filtered_Text"
+  ],
+  "skipped_representations": [],
+  "feature_rows": 88936,
+  "feature_columns": 49,
+  "contract_validation": {
+    "issue_count": 0,
+    "warning_count": 0,
+    "critical_count": 0,
+    "has_blockers": false
+  },
+  "feature_validation": {
+    "issue_count": 0,
+    "warning_count": 0,
+    "critical_count": 0,
+    "has_blockers": false
+  },
+  "elapsed_seconds": 149.5965,
+  "outputs": {
+    "features": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\row_features\\row_level_text_features.parquet",
+    "comparison_csv": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reports\\representation_comparison.csv",
+    "comparison_json": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reports\\representation_comparison.json",
+    "contract_validation": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reports\\phase3_contract_validation.csv",
+    "feature_validation": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reports\\row_feature_validation.csv",
+    "metadata": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reports\\stage1_run_metadata.json"
+  }
+}

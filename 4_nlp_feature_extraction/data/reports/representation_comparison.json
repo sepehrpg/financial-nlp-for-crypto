@@ -1,0 +1,42 @@
+[
+  {
+    "representation": "text_title_description",
+    "row_count": 88936,
+    "null_count": 0,
+    "null_pct": 0.0,
+    "empty_count": 76,
+    "empty_pct": 0.08545470900422776,
+    "nonempty_count": 88860,
+    "nonempty_pct": 99.91454529099578,
+    "median_word_count": 31.0,
+    "p95_word_count": 72.0,
+    "max_word_count": 958,
+    "median_character_count": 199.0,
+    "p95_character_count": 456.0,
+    "max_character_count": 5705,
+    "very_short_word_count": 0,
+    "very_short_word_pct_nonempty": 0.0,
+    "very_short_character_count": 0,
+    "very_short_character_pct_nonempty": 0.0
+  },
+  {
+    "representation": "Filtered_Text",
+    "row_count": 88936,
+    "null_count": 1,
+    "null_pct": 0.0011244040658451022,
+    "empty_count": 1,
+    "empty_pct": 0.0011244040658451022,
+    "nonempty_count": 88935,
+    "nonempty_pct": 99.99887559593415,
+    "median_word_count": 60.0,
+    "p95_word_count": 318.0,
+    "max_word_count": 1636,
+    "median_character_count": 454.0,
+    "p95_character_count": 2432.0,
+    "max_character_count": 12724,
+    "very_short_word_count": 530,
+    "very_short_word_pct_nonempty": 0.5959408556811154,
+    "very_short_character_count": 468,
+    "very_short_character_pct_nonempty": 0.5262270197335132
+  }
+]

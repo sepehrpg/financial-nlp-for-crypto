@@ -1,0 +1,9 @@
+check,status,severity,blocks_pipeline,observed,expected,message
+feature_id_column_present,pass,info,False,present,source_row_id,The generated artifact must retain the Phase 3 identifier.
+feature_row_count_matches_input,pass,info,False,88936,88936,Feature extraction must produce exactly one output row per input row.
+feature_id_order_preserved,pass,info,False,True,True,A changed identifier order would corrupt later joins.
+feature_id_duplicate_rows,pass,info,False,0,0,Existing duplicate identifiers are reported but do not alter row-local feature computation.
+feature_columns_exist,pass,info,False,48,> 0,At least one numeric feature column is required.
+feature_columns_numeric,pass,info,False,all numeric,all feature columns numeric,Only the identifier may be non-feature metadata.
+feature_nan_values,pass,info,False,0,0,NaN values would make the saved numeric artifact unreliable.
+feature_values_finite,pass,info,False,True,True,Infinite values are not valid row-level features.

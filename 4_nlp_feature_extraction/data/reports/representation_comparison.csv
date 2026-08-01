@@ -1,0 +1,3 @@
+representation,row_count,null_count,null_pct,empty_count,empty_pct,nonempty_count,nonempty_pct,median_word_count,p95_word_count,max_word_count,median_character_count,p95_character_count,max_character_count,very_short_word_count,very_short_word_pct_nonempty,very_short_character_count,very_short_character_pct_nonempty
+text_title_description,88936,0,0.0,76,0.08545470900422776,88860,99.91454529099578,31.0,72.0,958,199.0,456.0,5705,0,0.0,0,0.0
+Filtered_Text,88936,1,0.0011244040658451022,1,0.0011244040658451022,88935,99.99887559593415,60.0,318.0,1636,454.0,2432.0,12724,530,0.5959408556811154,468,0.5262270197335132

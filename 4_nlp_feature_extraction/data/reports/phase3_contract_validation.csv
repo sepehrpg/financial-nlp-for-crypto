@@ -1,0 +1,12 @@
+check,status,severity,blocks_pipeline,observed,expected,message
+dataset_has_rows,pass,info,False,88936,> 0,The dataset contains rows.
+row_count_observed,pass,info,False,88936,recorded at runtime,"Row count is descriptive metadata, not a fixed contract."
+id_column_present,pass,info,False,present,source_row_id,The identifier column is available.
+representation_present::text_title_description,pass,info,False,present,present,Representation is available.
+representation_present::Filtered_Text,pass,info,False,present,present,Representation is available.
+at_least_one_representation_available,pass,info,False,"['text_title_description', 'Filtered_Text']",at least one requested representation,At least one requested representation can be processed.
+id_missing_values,pass,info,False,0,0,No identifier values are missing.
+id_duplicate_rows,pass,info,False,0,0,Identifiers are unique.
+id_integer_dtype,pass,info,False,int64,integer-like identifier,Identifier dtype is integer.
+id_monotonic_order,pass,info,False,True,True,Rows are ordered by identifier.
+duplicate_contract_rows,pass,info,False,0,0,No duplicate contract rows were detected.
