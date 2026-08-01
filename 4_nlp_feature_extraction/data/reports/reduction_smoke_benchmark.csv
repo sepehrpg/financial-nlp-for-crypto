@@ -1,0 +1,11 @@
+input_key,method,rows,input_dimensions,output_dimensions,shape,dtype,elapsed_seconds,approx_output_memory_mb,explained_variance_ratio_sum,finite_values,source_row_id_order_preserved,fit_scope
+text_title_description__bert,pca,96,768,16,"(96, 16)",float32,0.06195820006541908,0.005859375,0.6731127500534058,True,True,smoke_sample_only
+Filtered_Text__bert,pca,96,768,16,"(96, 16)",float32,0.008981999941170216,0.005859375,0.7102147340774536,True,True,smoke_sample_only
+text_title_description__finbert,pca,96,768,16,"(96, 16)",float32,0.008608500007539988,0.005859375,0.7373089790344238,True,True,smoke_sample_only
+Filtered_Text__finbert,pca,96,768,16,"(96, 16)",float32,0.008582399925217032,0.005859375,0.7479114532470703,True,True,smoke_sample_only
+text_title_description__word_tfidf,truncated_svd,96,4058,16,"(96, 16)",float32,0.02042239997535944,0.005859375,0.19735319912433624,True,True,smoke_sample_only
+text_title_description__character_tfidf,truncated_svd,96,6000,16,"(96, 16)",float32,0.03288910002447665,0.005859375,0.2683273255825043,True,True,smoke_sample_only
+text_title_description__word_character_tfidf,truncated_svd,96,10058,16,"(96, 16)",float32,0.09063129988498986,0.005859375,0.22852569818496704,True,True,smoke_sample_only
+Filtered_Text__word_tfidf,truncated_svd,96,6000,16,"(96, 16)",float32,0.027071499964222312,0.005859375,0.24008086323738098,True,True,smoke_sample_only
+Filtered_Text__character_tfidf,truncated_svd,96,6000,16,"(96, 16)",float32,0.0426358999684453,0.005859375,0.3341166377067566,True,True,smoke_sample_only
+Filtered_Text__word_character_tfidf,truncated_svd,96,12000,16,"(96, 16)",float32,0.09885889990255237,0.005859375,0.2792092263698578,True,True,smoke_sample_only

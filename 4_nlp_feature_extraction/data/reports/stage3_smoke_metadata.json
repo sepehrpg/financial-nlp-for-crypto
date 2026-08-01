@@ -1,0 +1,49 @@
+{
+  "stage": "04_03_transformer_embeddings_and_reduction",
+  "status": "smoke_test_only",
+  "created_at_utc": "2026-08-01T20:35:30.732512+00:00",
+  "transformer_outputs": {
+    "source_row_ids": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\transformer_smoke_source_row_ids.csv",
+    "embeddings::text_title_description__bert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\text_title_description__bert_embeddings.npy",
+    "embeddings::Filtered_Text__bert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\Filtered_Text__bert_embeddings.npy",
+    "embeddings::text_title_description__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\text_title_description__finbert_embeddings.npy",
+    "embeddings::Filtered_Text__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\Filtered_Text__finbert_embeddings.npy",
+    "sentiment::text_title_description__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\text_title_description__finbert_sentiment_probabilities.npy",
+    "sentiment::Filtered_Text__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\Filtered_Text__finbert_sentiment_probabilities.npy",
+    "model_metadata": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\model_metadata.json",
+    "benchmark": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reports\\transformer_smoke_benchmark.csv",
+    "metadata": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\transformer_smoke_metadata.json"
+  },
+  "reduction_outputs": {
+    "pca_source_row_ids": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\pca_smoke_source_row_ids.csv",
+    "pca_array::text_title_description__bert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\text_title_description__bert_pca.npy",
+    "pca_estimator::text_title_description__bert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\text_title_description__bert_pca.joblib",
+    "pca_array::Filtered_Text__bert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\Filtered_Text__bert_pca.npy",
+    "pca_estimator::Filtered_Text__bert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\Filtered_Text__bert_pca.joblib",
+    "pca_array::text_title_description__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\text_title_description__finbert_pca.npy",
+    "pca_estimator::text_title_description__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\text_title_description__finbert_pca.joblib",
+    "pca_array::Filtered_Text__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\Filtered_Text__finbert_pca.npy",
+    "pca_estimator::Filtered_Text__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\Filtered_Text__finbert_pca.joblib",
+    "svd_source_row_ids": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\svd_smoke_source_row_ids.csv",
+    "svd_array::text_title_description__word_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\text_title_description__word_tfidf_svd.npy",
+    "svd_estimator::text_title_description__word_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\text_title_description__word_tfidf_svd.joblib",
+    "svd_array::text_title_description__character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\text_title_description__character_tfidf_svd.npy",
+    "svd_estimator::text_title_description__character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\text_title_description__character_tfidf_svd.joblib",
+    "svd_array::text_title_description__word_character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\text_title_description__word_character_tfidf_svd.npy",
+    "svd_estimator::text_title_description__word_character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\text_title_description__word_character_tfidf_svd.joblib",
+    "svd_array::Filtered_Text__word_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\Filtered_Text__word_tfidf_svd.npy",
+    "svd_estimator::Filtered_Text__word_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\Filtered_Text__word_tfidf_svd.joblib",
+    "svd_array::Filtered_Text__character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\Filtered_Text__character_tfidf_svd.npy",
+    "svd_estimator::Filtered_Text__character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\Filtered_Text__character_tfidf_svd.joblib",
+    "svd_array::Filtered_Text__word_character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\Filtered_Text__word_character_tfidf_svd.npy",
+    "svd_estimator::Filtered_Text__word_character_tfidf": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reduction_smoke\\Filtered_Text__word_character_tfidf_svd.joblib",
+    "benchmark": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reports\\reduction_smoke_benchmark.csv"
+  },
+  "final_benchmark": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\reports\\phase4_method_benchmark.csv",
+  "leakage_boundary": {
+    "frozen_embeddings": "May be generated for all rows because external model weights and tokenizer are fixed and no corpus parameter is learned.",
+    "pca": "Fit on training embeddings only after the temporal split.",
+    "truncated_svd": "Fit on training TF-IDF only after the temporal split.",
+    "tfidf": "Fit vectorizers on training text only after the temporal split."
+  }
+}

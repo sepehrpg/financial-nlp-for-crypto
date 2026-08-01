@@ -1,0 +1,25 @@
+{
+  "stage": "04_03_transformer_embeddings_and_reduction",
+  "status": "transformer_smoke_test_only",
+  "created_at_utc": "2026-08-01T20:35:29.283353+00:00",
+  "sample_rows": 96,
+  "representations": [
+    "text_title_description",
+    "Filtered_Text"
+  ],
+  "models": [
+    "bert",
+    "finbert"
+  ],
+  "leakage_note": "Frozen external embeddings and FinBERT probabilities do not learn from this corpus. PCA and TruncatedSVD outputs created later in the notebook are smoke-test artifacts only and must be refit on training data.",
+  "outputs": {
+    "source_row_ids": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\transformer_smoke_source_row_ids.csv",
+    "embeddings::text_title_description__bert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\text_title_description__bert_embeddings.npy",
+    "embeddings::Filtered_Text__bert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\Filtered_Text__bert_embeddings.npy",
+    "embeddings::text_title_description__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\text_title_description__finbert_embeddings.npy",
+    "embeddings::Filtered_Text__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\Filtered_Text__finbert_embeddings.npy",
+    "sentiment::text_title_description__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\text_title_description__finbert_sentiment_probabilities.npy",
+    "sentiment::Filtered_Text__finbert": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\Filtered_Text__finbert_sentiment_probabilities.npy",
+    "model_metadata": "C:\\Users\\sepehr\\PycharmProjects\\FinancialNLP\\4_nlp_feature_extraction\\data\\transformer_smoke\\model_metadata.json"
+  }
+}

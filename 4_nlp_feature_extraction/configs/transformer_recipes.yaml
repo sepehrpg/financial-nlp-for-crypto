@@ -1,0 +1,86 @@
+# Stage 3 uses fixed external transformer models for frozen smoke-test features.
+# Frozen embeddings may be generated before the temporal split because no corpus
+# parameters are learned. PCA and TruncatedSVD remain smoke-test recipes only;
+# their final fit must happen on the training split in Phase 6/7.
+input:
+  relative_path: 3_text_preprocessing/data/processed/cryptovision_v1_preprocessed.parquet
+  id_column: source_row_id
+  representations:
+    - text_title_description
+    - Filtered_Text
+
+smoke_test:
+  sample_size: 96
+  random_state: 42
+  max_empty_rows_per_representation: 4
+  batch_size: 8
+  device: auto
+  track_truncation: true
+
+models:
+  bert:
+    model_id: google-bert/bert-base-uncased
+    revision: main
+    tokenizer_id: google-bert/bert-base-uncased
+    tokenizer_revision: main
+    task: embedding
+    pooling: masked_mean
+    max_length: 256
+    truncation: true
+    padding: longest
+    model_dtype: float32
+    output_dtype: float32
+    sentiment_probabilities: false
+
+  finbert:
+    model_id: ProsusAI/finbert
+    revision: main
+    tokenizer_id: ProsusAI/finbert
+    tokenizer_revision: main
+    task: sequence_classification
+    pooling: masked_mean
+    max_length: 256
+    truncation: true
+    padding: longest
+    model_dtype: float32
+    output_dtype: float32
+    sentiment_probabilities: true
+    sentiment_output_order:
+      - positive
+      - neutral
+      - negative
+
+reduction:
+  pca:
+    n_components: 16
+    svd_solver: auto
+    whiten: false
+    random_state: 42
+    output_dtype: float32
+
+  truncated_svd:
+    n_components: 16
+    algorithm: randomized
+    n_iter: 7
+    random_state: 42
+    output_dtype: float32
+    tfidf_recipes:
+      - word_tfidf
+      - character_tfidf
+      - word_character_tfidf
+
+full_run:
+  batch_size: 16
+  device: auto
+  resume: true
+  track_truncation: false
+  output_directory_relative_path: 4_nlp_feature_extraction/data/embeddings
+
+output:
+  transformer_smoke_directory_relative_path: 4_nlp_feature_extraction/data/transformer_smoke
+  reduction_smoke_directory_relative_path: 4_nlp_feature_extraction/data/reduction_smoke
+  transformer_benchmark_relative_path: 4_nlp_feature_extraction/data/reports/transformer_smoke_benchmark.csv
+  transformer_metadata_relative_path: 4_nlp_feature_extraction/data/transformer_smoke/transformer_smoke_metadata.json
+  reduction_benchmark_relative_path: 4_nlp_feature_extraction/data/reports/reduction_smoke_benchmark.csv
+  metadata_relative_path: 4_nlp_feature_extraction/data/reports/stage3_smoke_metadata.json
+  final_benchmark_relative_path: 4_nlp_feature_extraction/data/reports/phase4_method_benchmark.csv
