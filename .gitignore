@@ -76,3 +76,19 @@ htmlcov/
 *.temp
 
 
+
+
+# Live HTTP responses and resumable state can be large or machine-specific.
+data/raw/html/*.html
+!data/raw/html/.gitkeep
+data/reports/scraper_state.json
+
+# Keep the small verified educational snapshot and generated demonstration output.
+!data/snapshots/**
+!data/processed/sec_bitcoin_press_releases.csv
+!data/processed/sec_bitcoin_press_releases.jsonl
+!data/processed/sec_bitcoin_press_releases.parquet
+!data/reports/scraping_quality.csv
+!data/reports/scraping_summary.json
+!data/reports/failed_urls.csv
+

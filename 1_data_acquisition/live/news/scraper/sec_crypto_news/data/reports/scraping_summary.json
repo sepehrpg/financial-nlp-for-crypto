@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "collection_mode": "verified_official_page_snapshot",
+  "records": 16,
+  "failures": 0,
+  "oldest_publication_date": "2015-12-01",
+  "newest_publication_date": "2025-09-17",
+  "median_word_count": 100.5,
+  "all_bitcoin_related": true,
+  "source_row_id_unique": true,
+  "canonical_url_unique": true,
+  "content_hash_unique": true,
+  "created_at_utc": "2026-08-03T13:29:55.691475+00:00",
+  "outputs": {
+    "csv": "data/processed/sec_bitcoin_press_releases.csv",
+    "parquet": "data/processed/sec_bitcoin_press_releases.parquet",
+    "parquet_note": null,
+    "jsonl": "data/processed/sec_bitcoin_press_releases.jsonl",
+    "quality_report": "data/reports/scraping_quality.csv",
+    "failed_urls": "data/reports/failed_urls.csv"
+  }
+}

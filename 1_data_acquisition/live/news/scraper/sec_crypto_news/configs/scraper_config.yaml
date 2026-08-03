@@ -1,0 +1,52 @@
+source:
+  name: sec.gov
+  source_type: press_release
+  base_url: https://www.sec.gov
+  listing_path: /newsroom/press-releases
+  search_query: crypto
+  start_page: 0
+  max_pages: 6
+  allowed_hosts:
+    - www.sec.gov
+    - sec.gov
+
+bitcoin_filter:
+  case_sensitive: false
+  keywords:
+    - bitcoin
+    - bitcoins
+    - btc
+    - spot bitcoin
+    - bitcoin etf
+    - bitcoin etp
+    - bitcoin exchange
+    - bitcoin mining
+  required_matches: 1
+
+http:
+  # SEC asks automated clients to identify themselves. Replace the contact value
+  # with your preferred research contact before a large live run.
+  user_agent: FinancialNLPForCrypto/1.0 contact=sepehrpg@users.noreply.github.com
+  accept: text/html,application/xhtml+xml
+  accept_encoding: gzip, deflate
+  timeout_seconds: 30
+  delay_seconds: 1.0
+  max_retries: 3
+  backoff_factor: 2.0
+  verify_ssl: true
+
+run:
+  incremental: true
+  save_raw_html: true
+  stop_on_empty_listing: true
+  max_articles: null
+
+storage:
+  raw_html_directory: data/raw/html
+  processed_csv: data/processed/sec_bitcoin_press_releases.csv
+  processed_parquet: data/processed/sec_bitcoin_press_releases.parquet
+  processed_jsonl: data/processed/sec_bitcoin_press_releases.jsonl
+  failed_urls_csv: data/reports/failed_urls.csv
+  quality_report_csv: data/reports/scraping_quality.csv
+  summary_json: data/reports/scraping_summary.json
+  state_json: data/reports/scraper_state.json

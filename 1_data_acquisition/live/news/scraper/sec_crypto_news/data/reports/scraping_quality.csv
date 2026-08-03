@@ -1,0 +1,14 @@
+metric,value
+row_count,16
+unique_release_numbers,16
+duplicate_source_row_ids,0
+duplicate_canonical_urls,0
+duplicate_content_hashes,0
+missing_titles,0
+missing_full_text,0
+invalid_published_dates,0
+median_word_count,100.5
+min_word_count,63
+max_word_count,214
+oldest_publication_date,2015-12-01
+newest_publication_date,2025-09-17
